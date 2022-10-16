@@ -1,0 +1,18 @@
+@import url(generic-styles.css);
+/*lets try cascade layers*/
+@layer firstLayer, secondLayer;
+
+h1,h2{
+    color:rgb(118, 244, 0);
+}
+
+@layer firstLayer{
+    h1,h2{
+        color: rgba(0, 0, 0, 0.8) !important;
+    }
+}
+@layer secondlayer{
+    h1,h2{
+        color:rgb(51, 135, 158);
+    }
+}

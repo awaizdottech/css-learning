@@ -1,0 +1,104 @@
+/*make generic rules for repeating rule sets like box*/
+*{
+    text-align: center;
+}
+h1{
+    color: red !important;
+    /*Note: It is useful to know that !important exists so that you know what it is when you come across it in other people's code. However, we strongly recommend that you never use it unless you absolutely have to. !important changes the way the cascade normally works, so it can make debugging CSS problems really hard to work out, especially in a large stylesheet.
+    Note: The only way to override this !important declaration would be to include another !important declaration on a declaration with the same specificity later in the source order, or one with higher specificity.*/
+    border-bottom: 4px solid black;
+}
+body :first-child{
+    color: rgb(189, 145, 0) !important;
+}
+p{
+    background-image: url(istockphoto-1287456867-170667a.jpg);
+    color: white;
+}
+h1+p /*or v can also use h1~p which works even if any other element is inserted between h1 and p*/
+{
+    font-size: 200%;
+    width: calc(90%-30px);/*not working*/
+}
+body h1 + p .special {
+    /*or v could've also used span.special*/
+    color: yellow;
+    background-color: black;
+    padding: 5px;
+}
+a[href="https://example.com"]{
+    color: rgba(239, 8, 100, 0.5);
+    /*not visible as the link is marked as visited with another rule set applied to it
+    how to remove that when v refresh page?*/
+}
+a:visited{
+    color:rebeccapurple;
+    text-decoration: line-through;
+    /* second declaration not working */
+}
+.para{
+    /*applis to all paras with para class*/
+}
+.para.first{
+    /*applies to para with both para and first classes and similarly for .second.para */
+}
+body *:nth-child(3){
+    /*It is selecting any element which is the first-child of a >body> element, or the first-child of any descendant element of <body>:*/
+    all: unset;
+}
+a[title="google"]{
+    color: cyan;
+}
+ul{
+    list-style-type: urdu;
+    font-weight: bold;
+}
+ul::before/*or ::after*/{
+    /*pseudo-elements are also frequently used to insert an empty string, which can then be styled just like any element on the page.*/
+    content:"😎#cool";
+    width: 100px;
+    background-color: rgb(1, 245, 50);
+    padding: 1em;
+    display: block;/*important*/
+    /*Inserting strings of text from CSS isn't really something we do very often on the web however, as that text is inaccessible to some screen readers and might be hard for someone to find and edit in the future.*/
+}
+li.special{
+    background-color: black;
+    color: darkkhaki;
+}
+.special+li{
+    text-decoration: underline overline #FF3028 5px;
+    all: initial;
+}
+li em{
+    color: rebeccapurple;
+}
+li:nth-child(3):hover{
+    /*selects li thats 3rd child of any list not 3rd child of li like
+    li :nth-child(3)*/
+    border: solid 5px white;
+    font-size:2em ;
+}
+/* li[class^="a" i] {
+    font-size: 200%;
+}
+
+li[class$="a"] {
+    background-color: yellow;
+}
+
+li[class*="a"] {
+    color: red;
+}*/
+.box {
+    width: 100px;
+    height: 100px;
+    background-image:
+    linear-gradient(to bottom, rgba(255,255,0,0.5), rgba(0,0,255,0.5)),
+    url('catfront.png');
+    /* we can even add layers of pngs on one another for background image */
+    transform: rotate(0.8turn);
+    outline-style: dashed;
+    outline-width: 6px;
+    outline-color: darkturquoise;
+  }
