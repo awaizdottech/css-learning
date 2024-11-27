@@ -16,6 +16,9 @@ p{
     background-image: url(istockphoto-1287456867-170667a.jpg);
     color: white;
 }
+p::first-line{
+/*     first line of p, simiilarly we have lfirst-etter */
+}
 h1+p /*or v can also use h1~p which targets all the siblings of h1 which are p*/
 {
     font-size: 200%;
@@ -80,15 +83,18 @@ li:nth-child(3):hover{
     border: solid 5px white;
     font-size:2em ;
 }
-/* li[class^="a" i] {
+/* li[class^="a" i] { starting with a
     font-size: 200%;
 }
 
-li[class$="a"] {
+li[class$="a"] { ending with a
     background-color: yellow;
 }
 
-li[class*="a"] {
+li[class*="a"] { contains value a
+    color: red;
+}
+li[class~="a"] { contains word a
     color: red;
 }*/
 .box {
